@@ -120,6 +120,33 @@
                 <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-pos-green-bg text-pos-green">SMS OK</span>
               </div>
             </div>
+
+            <!-- assigned groups + segments -->
+            <div class="mt-4 pt-4 border-t border-line flex flex-wrap gap-x-10 gap-y-4">
+              <div>
+                <p class="eyebrow mb-1.5 flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  Assigned groups
+                </p>
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="inline-flex items-center gap-1 text-xs font-medium bg-canvas text-ink px-2.5 py-1 rounded-full">Manchester VIPs</span>
+                  <span class="inline-flex items-center gap-1 text-xs font-medium bg-canvas text-ink px-2.5 py-1 rounded-full">Christmas 2025 invite</span>
+                  <button class="text-xs font-medium text-brand px-2 py-1 rounded-full border border-dashed border-brand/40 hover:bg-brand-soft">+ Add</button>
+                </div>
+              </div>
+              <div>
+                <p class="eyebrow mb-1.5 flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+                  Assigned segments
+                </p>
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-medium bg-brand-soft text-brand px-2.5 py-1 rounded-full"><span class="h-1.5 w-1.5 rounded-full bg-brand"></span>High spenders</span>
+                  <span class="inline-flex items-center gap-1.5 text-xs font-medium bg-brand-soft text-brand px-2.5 py-1 rounded-full"><span class="h-1.5 w-1.5 rounded-full bg-brand"></span>Cocktail enthusiasts</span>
+                  <span class="inline-flex items-center gap-1.5 text-xs font-medium bg-brand-soft text-brand px-2.5 py-1 rounded-full"><span class="h-1.5 w-1.5 rounded-full bg-brand"></span>Weekend regulars</span>
+                  <span class="text-[10px] text-muted self-center">dynamic · rule-based</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -137,9 +164,9 @@
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></svg>
             View database activity
           </button>
-          <button class="w-full inline-flex items-center justify-center gap-2 text-muted hover:text-ink text-sm font-medium rounded-lg px-4 py-2 transition">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
-            More actions
+          <button onclick="toast('Added Sarah Thompson to Actions')" class="w-full inline-flex items-center justify-center gap-2 bg-white hover:bg-canvas text-ink border border-line font-semibold text-sm rounded-lg px-4 py-2.5 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            Add to Actions
           </button>
         </div>
       </div>
