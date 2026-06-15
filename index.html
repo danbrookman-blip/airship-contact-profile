@@ -10,24 +10,27 @@
       theme: {
         extend: {
           colors: {
-            ink: '#364B64',          // pickled-bluewood — primary text
-            muted: '#8B9CB1',        // labels / secondary
-            faint: '#B8C9D0',        // metallic-silver — disabled
-            brand: '#3180ff',        // Airship action blue
-            'brand-dark': '#1F4E8D',
-            'brand-soft': '#ECF3FB',
-            line: '#E6EAF0',
-            canvas: '#F1F5F6',       // catskill-white app bg
-            'pos-green': '#2F8F1E',
-            'pos-green-bg': '#ECF7E6',
-            'neg-red': '#B33A3B',
-            'amber': '#B7791F',
-            'amber-bg': '#FBF3E2',
-            'plum': '#8d00d4',
-            'plum-light': '#d14bea',
+            ink: '#354B64',          // DS dark-blue — headers & primary text
+            muted: '#6D90B4',        // DS slate — labels / secondary
+            faint: '#B3CBE0',        // DS inactive-grey — disabled / zero
+            brand: '#3180FF',        // DS primary blue
+            'brand-dark': '#1571DD', // DS primary hover
+            'brand-soft': '#E4EDF2', // DS atmosphere neutral fill
+            'light-blue': '#38ABFF', // DS neutral button
+            line: '#E1E8ED',
+            canvas: '#F4F6F7',       // DS off-grey app background
+            'pos-green': '#71BE37',  // DS success
+            'pos-green-bg': '#DFEED4',
+            'neg-red': '#D8000C',
+            'neg-red-bg': '#FDE9E9',
+            'amber': '#E6A831',
+            'amber-bg': '#F7EBD4',
+            'plum': '#5F1C70',       // DS Airship gradient end
+            'plum-light': '#BD38DF', // DS Airship gradient start
+            'loyalty': '#7DA400',    // DS loyalty booster green
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+            sans: ['Lato', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
           },
           boxShadow: {
             card: '0 1px 2px rgba(54,75,100,.06), 0 1px 3px rgba(54,75,100,.04)',
@@ -38,10 +41,35 @@
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <style>
-    body { background: #F1F5F6; }
-    .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #8B9CB1; }
+    body { background: #F4F6F7; }
+    .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #6D90B4; }
+
+    /* ---- Airship Design System: buttons (pill, Lato, 2px outline) ---- */
+    .asbtn { font-family: 'Lato', sans-serif; font-weight: 700; border-radius: 9999px; cursor: pointer;
+             transition: box-shadow .3s, transform .3s, background-color .3s, color .3s; box-sizing: border-box; }
+    .asbtn--primary { background: #3180FF; color: #fff; border: 2px solid #3180FF; }
+    .asbtn--primary:hover { background: #1571DD; border-color: #1571DD; transform: translateY(-2px); box-shadow: 0 10px 30px -10px #2cc1ff; }
+    .asbtn--outline { background: #fff; color: #3180FF; border: 2px solid #3180FF; }
+    .asbtn--outline:hover { background: rgba(49,128,255,.08); }
+    .asbtn--neutral { background: #fff; color: #38ABFF; border: 2px solid #38ABFF; }
+    .asbtn--neutral:hover { background: rgba(56,171,255,.10); }
+    .asbtn--ghost { background: transparent; color: #6D90B4; border: 2px solid transparent; }
+    .asbtn--ghost:hover { color: #354B64; background: #EDF1F4; }
+
+    /* ---- Airship Design System: Atmosphere badges (soft pastel) ---- */
+    .asbadge { display: inline-flex; align-items: center; gap: .3rem; font-family: 'Lato', sans-serif;
+               font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 5px; line-height: 1.2; white-space: nowrap; }
+    .asbadge--sm { font-size: 10px; padding: 2px 7px; }
+    .asbadge--neutral  { background: #E4EDF2; color: #38ABFF; }
+    .asbadge--confirm  { background: #DFEED4; color: #5FA52C; }
+    .asbadge--warning  { background: #F7EBD4; color: #E6A831; }
+    .asbadge--abort    { background: #FDE9E9; color: #D8000C; }
+    .asbadge--inactive { background: #E4EDF2; color: rgba(53,75,100,.5); }
+    .asbadge--loyalty  { background: #EEF6CF; color: #7DA400; }
+    .asbadge--airship  { background: linear-gradient(112deg,#BD38DF 0%,#5F1C70 100%); color: #fff; }
     .toast-in { animation: toastIn .25s cubic-bezier(.34,1.56,.64,1) both; }
     @keyframes toastIn { from { opacity:0; transform: translateY(12px) scale(.96);} to {opacity:1; transform:none;} }
     .modal-card { animation: modalIn .22s cubic-bezier(.34,1.4,.64,1) both; }
@@ -94,8 +122,8 @@
           <div class="min-w-0">
             <div class="flex items-center gap-2 flex-wrap">
               <h1 class="text-2xl font-extrabold tracking-tight">Sarah Thompson</h1>
-              <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-bg text-amber">★ VIP</span>
-              <span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full text-white bg-gradient-to-r from-plum-light to-plum">GOLD LOYALTY</span>
+              <span class="asbadge asbadge--warning">★ VIP</span>
+              <span class="asbadge asbadge--loyalty">GOLD LOYALTY</span>
             </div>
             <div class="mt-2 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-muted">
               <span class="flex items-center gap-1.5">
@@ -112,12 +140,12 @@
               <div class="flex items-center gap-2 bg-canvas rounded-lg px-3 py-2">
                 <svg class="w-4 h-4 text-muted" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
                 <span class="text-sm font-medium">sarah.thompson@gmail.com</span>
-                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-pos-green-bg text-pos-green">OPTED IN</span>
+                <span class="asbadge asbadge--sm asbadge--confirm">OPTED IN</span>
               </div>
               <div class="flex items-center gap-2 bg-canvas rounded-lg px-3 py-2">
                 <svg class="w-4 h-4 text-muted" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
                 <span class="text-sm font-medium">+44 7700 900123</span>
-                <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-pos-green-bg text-pos-green">SMS OK</span>
+                <span class="asbadge asbadge--sm asbadge--confirm">SMS OK</span>
               </div>
             </div>
 
@@ -152,19 +180,19 @@
 
         <!-- primary comms actions -->
         <div class="flex flex-col gap-2 lg:w-56 shrink-0">
-          <button onclick="openModal('email')" class="w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold text-sm rounded-lg px-4 py-2.5 transition">
+          <button onclick="openModal('email')" class="asbtn asbtn--primary w-full inline-flex items-center justify-center gap-2 text-sm px-4 py-2.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             Send Email
           </button>
-          <button onclick="openModal('sms')" class="w-full inline-flex items-center justify-center gap-2 bg-white hover:bg-canvas text-brand border border-brand font-semibold text-sm rounded-lg px-4 py-2.5 transition">
+          <button onclick="openModal('sms')" class="asbtn asbtn--outline w-full inline-flex items-center justify-center gap-2 text-sm px-4 py-2.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
             Send SMS
           </button>
-          <button onclick="openModal('activity')" class="w-full inline-flex items-center justify-center gap-2 text-muted hover:text-ink text-sm font-medium rounded-lg px-4 py-2 transition">
+          <button onclick="openModal('activity')" class="asbtn asbtn--ghost w-full inline-flex items-center justify-center gap-2 text-sm px-4 py-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></svg>
             View database activity
           </button>
-          <button onclick="toast('Added Sarah Thompson to Actions')" class="w-full inline-flex items-center justify-center gap-2 bg-white hover:bg-canvas text-ink border border-line font-semibold text-sm rounded-lg px-4 py-2.5 transition">
+          <button onclick="toast('Added Sarah Thompson to Actions')" class="asbtn asbtn--neutral w-full inline-flex items-center justify-center gap-2 text-sm px-4 py-2.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
             Add to Actions
           </button>
@@ -359,7 +387,7 @@
             <textarea id="noteInput" rows="2" maxlength="500" oninput="noteCount()" placeholder="Add a note about Sarah…" class="w-full border border-line rounded-lg px-3 py-2 text-sm focus:border-brand focus:ring-1 focus:ring-brand outline-none resize-none"></textarea>
             <div class="flex items-center justify-between mt-1.5">
               <span class="text-xs text-muted"><span id="noteChars">0</span>/500</span>
-              <button onclick="addNote()" class="text-sm font-semibold bg-brand hover:bg-brand-dark text-white rounded-lg px-4 py-2">Add note</button>
+              <button onclick="addNote()" class="asbtn asbtn--primary text-sm px-5 py-2">Add note</button>
             </div>
           </div>
         </div>
@@ -367,7 +395,7 @@
       </div>
     </section>
 
-    <p class="text-center text-xs text-faint mt-8">Prototype · redesigned Contact Profile · brand-matched to Airship CRM. Mock data — actions are simulated.</p>
+    <p class="text-center text-xs text-faint mt-8">Prototype · redesigned Contact Profile · built on the Airship Design System (Lato · Atmosphere components). Mock data — actions are simulated.</p>
   </main>
 
   <!-- ============ MODALS ============ -->
@@ -396,8 +424,8 @@
         </div>
       </div>
       <div class="flex items-center justify-end gap-2 px-5 py-4 bg-canvas border-t border-line">
-        <button onclick="closeModal()" class="text-sm font-semibold text-muted hover:text-ink px-4 py-2">Cancel</button>
-        <button onclick="fakeSend('Email sent to Sarah Thompson')" class="text-sm font-semibold bg-brand hover:bg-brand-dark text-white rounded-lg px-4 py-2">Send email</button>
+        <button onclick="closeModal()" class="asbtn asbtn--ghost text-sm px-5 py-2">Cancel</button>
+        <button onclick="fakeSend('Email sent to Sarah Thompson')" class="asbtn asbtn--primary text-sm px-5 py-2">Send email</button>
       </div>
     </div>
     <!-- SMS -->
@@ -420,8 +448,8 @@
         </div>
       </div>
       <div class="flex items-center justify-end gap-2 px-5 py-4 bg-canvas border-t border-line">
-        <button onclick="closeModal()" class="text-sm font-semibold text-muted hover:text-ink px-4 py-2">Cancel</button>
-        <button onclick="fakeSend('SMS sent to +44 7700 900123')" class="text-sm font-semibold bg-brand hover:bg-brand-dark text-white rounded-lg px-4 py-2">Send SMS</button>
+        <button onclick="closeModal()" class="asbtn asbtn--ghost text-sm px-5 py-2">Cancel</button>
+        <button onclick="fakeSend('SMS sent to +44 7700 900123')" class="asbtn asbtn--primary text-sm px-5 py-2">Send SMS</button>
       </div>
     </div>
     <!-- Database activity -->
@@ -441,7 +469,7 @@
 
   <!-- toast -->
   <div id="toast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 toast-in bg-ink text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-pop flex items-center gap-2">
-    <svg class="w-5 h-5 text-kiwi" fill="none" stroke="#82ED5B" stroke-width="2.4" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg>
+    <svg class="w-5 h-5" fill="none" stroke="#71BE37" stroke-width="2.4" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg>
     <span id="toastMsg"></span>
   </div>
 
@@ -483,9 +511,9 @@
 
     // ---- Offers issued ----
     const STATUS = {
-      redeemed: 'bg-pos-green-bg text-pos-green',
-      active:   'bg-brand-soft text-brand',
-      expired:  'bg-canvas text-muted',
+      redeemed: 'asbadge asbadge--confirm asbadge--sm',
+      active:   'asbadge asbadge--neutral asbadge--sm',
+      expired:  'asbadge asbadge--inactive asbadge--sm',
     };
     const OFFERS = [
       { name: '2-4-1 Cocktails',        issued: '12 May 2026', expires: '12 Jun 2026', value: '£18.00', status: 'active' },
@@ -500,7 +528,7 @@
         <td class="px-3 py-3 text-muted">${o.issued}</td>
         <td class="px-3 py-3 text-muted">${o.expires}</td>
         <td class="px-3 py-3 font-medium">${o.value}</td>
-        <td class="px-3 py-3"><span class="text-[11px] font-bold px-2 py-0.5 rounded-full ${STATUS[o.status]}">${o.status.toUpperCase()}</span></td>
+        <td class="px-3 py-3"><span class="${STATUS[o.status]}">${o.status.toUpperCase()}</span></td>
         <td class="px-5 py-3 text-right">
           <button onclick="resendOffer(${i})" class="inline-flex items-center gap-1 text-xs font-semibold text-brand hover:text-brand-dark hover:underline">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 21v-5h5"/></svg>
